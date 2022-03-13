@@ -5,5 +5,8 @@ int main()
     int *ptr = &age;               //"*" is dinoting value of "ptr" and '&' is denoting address of "age"  
     printf("Address of age is : %u \n",ptr);
     printf("Value of age is : %d\n", age);
+    printf("%u",*(&ptr));
+    
+
     return 0;
 }
