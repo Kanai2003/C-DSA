@@ -11,5 +11,7 @@ int main(){
     char *str2 = "My Name is Kanai"; // this is called as pointer array
 
     printf("%s",str2);
+
+    
     return 0;
 }
