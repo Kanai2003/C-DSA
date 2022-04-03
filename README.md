@@ -15,4 +15,5 @@
 
 <p >
 				<img >
-				<a href="https://code.visualstudio.com/">
+				<a href="https://code.visualstudio.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VsCode" width="35"/>   Visual Studio Code</a>
+			</p>
