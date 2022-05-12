@@ -1,6 +1,6 @@
+
+//My code -----------
 #include <stdio.h>
-
-
 
 int main() {
     int n ;
@@ -52,6 +52,9 @@ int main() {
     return 0;
 }
 
+
+
+//Driptanil's code -------------
 
 
 //another way , using while loop 
