@@ -1,7 +1,17 @@
 #include<stdio.h>
 int main (){
-    int arr[]={1,4,7,9,2,3,6,8,12,16,13,18,16,26,24,58};
-    int size = sizeof(arr)/sizeof(arr[0]);
+    int size;
+    printf("Enter size of array :");
+    scanf("%d",&size);
+    int arr[size];
+    
+    //taking array input
+    printf("Enter array value : \n");
+    for(int i=0;i<size;i++){
+        scanf("%d",&arr[i]);
+    }
+
+    //boubble sorting
     // int flag;
     for (int i = 0; i<size-1 ; i++){
         for(int j =0; j<size-1-i ; j++){
@@ -17,7 +27,9 @@ int main (){
         //     break;
         // }
     }
-    for(int i =0; i<size-1; i++){
+
+    //printing array
+    for(int i =0; i<size; i++){
         printf("%d ",arr[i]);
     }
     return 0;
