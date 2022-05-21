@@ -11,11 +11,16 @@
 int main(int argc, char const *argv[])
 {
     int *ptr;
+    
     ptr = (int *) malloc(5 * sizeof(int));  // (5 * sizeof(int)) is number or size in bytes
 
     ptr = (int *) calloc(5,sizeof(int));  
 
     ptr = realloc(ptr, 5);
+
+    free(ptr); // free this memory 
+
+
 
 
     return 0;

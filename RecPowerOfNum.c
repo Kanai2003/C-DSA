@@ -9,7 +9,7 @@ int main(){
     printf("Enter power \n");
     scanf("%d",&y);
     res = power(x,y);
-    printf(" Result  =  %d",res);
+    printf("Result  =  %d",res);
     return 0;
 }
 

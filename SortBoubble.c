@@ -25,8 +25,7 @@ int main (){
         }
         if(flag == 0){
                 break;
-            }
-        
+        }   
     }
 
     //printing array
