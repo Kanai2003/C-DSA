@@ -27,7 +27,7 @@ int main(){
 
 void divide(int arr[], int start , int end ){
     if(start >= end){
-            return;
+        return;
     }
         
     int mid  = start + (end - start)/2;
@@ -41,7 +41,7 @@ void conqure(int arr[], int start, int mid, int end){
     int idx1 = start;
     int idx2 = mid+1;
     int x = 0;
-    while(idx1 <= mid && idx2 <= end){      
+    while(idx1 < mid && idx2 < end){      
         if(arr[idx1] <= arr[idx2]){
             mar[x++] = arr[idx1++];
         }else{
@@ -49,11 +49,11 @@ void conqure(int arr[], int start, int mid, int end){
         }
     }
 
-    while (idx1 <= mid){
+    while (idx1 < mid){
         mar[x++] = arr[idx1++];
     }
 
-    while (idx2 <= end){
+    while (idx2 < end){
         mar[x++] = arr[idx2++];
     }
 
