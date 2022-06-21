@@ -11,29 +11,48 @@ int main(){
 
     // char *str2 = "My Name is Kanai"; // this is called as pointer array
     // printf("%s",str2);
+    // puts(s1);       // we can use puts() as well as printf() function
 
 
-    //Functions in C ------------------
 
-    // char *s1 = "Kanai";
-    // int n =strlen(s1);     // it will calculate length of a string
-    // printf("\nLength of string 1 is %d \n",n);
+    //Functions in C --------------------------------------
 
-    // char s2[]="lal";
-    // strcat(s1,s2);
-    //printf("%s",s2);
+    char *s1 = "Kanai";
+    char *s2="lal";
+
+    int n =strlen(s1);     //  calculate length of a string
+
+    strcat(s1,s2);           //Is used to concatenate or join two strings
+
+    //strcpy(s1,s2);          //Can copy the content of a string to another
+
+    int i=strcmp(s1, "Kanailal");      //Can compare two strings
+    int j=strcmp(s1, s2);
+    
+    printf("%d%d%d",i,j);
+
+    printf("%s",strrev(s1));     //Is used to reverse the string
+
+    printf("%d",strlwr(s1));    //Can convert the string to lowercase
+
+    printf("%d",strupr(s1));    //Can convert the string to uppercase
+
 
 
 
     // verious output process --------------------------------
     char str[] = "Introduction to C ";
-    clrscr();
+    // clrscr();
     printf("\n |%s|",str);
     printf("\n |%20s|",str);
     printf("\n |%-20s|",str);
-    printf("\n |%.4s|",str);
+    printf("\n |%.4s|",str);+-
+
+
     printf("\n |%20.4s|",str);
     printf("\n |%-20.4s|",str);
+
+    
 
     
     return 0;

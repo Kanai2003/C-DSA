@@ -14,12 +14,12 @@ int main(int argc, char const *argv[])
 
     fprintf(fptr,"%c",ch);
 
-    fgetc(fptr);  // to get a character
-    while(ch != EOF){   //"EOF" -> End Of File
+    fgetc(fptr);        // to get a character
+    while(ch != EOF){       //"EOF" -> End Of File
         printf("%c",ch);
         ch = fget(fptr);
     }
-    fputc('a',fptr); // to put a character in a file
+    fputc('a',fptr);        // to put a character in a file
 
     return 0;
 }
