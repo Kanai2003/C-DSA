@@ -9,9 +9,9 @@ int main(){
     // char str1[] = "My Name is Kanai";  // "\0" is not necessary for it
     // printf("%s\n", str1);              // we can change pointer arrray but we cant change any notmal character array
 
-    // char *str2 = "My Name is Kanai"; // this is called as pointer array
-    // printf("%s",str2);
-    // puts(s1);       // we can use puts() as well as printf() function
+    // char *str2 ; // this is called as pointer array
+    // gets("%s",str2);   //similar to scanf() function and faster 
+    // puts(str2);       // we can use puts() as well as printf() function
 
 
 
@@ -41,16 +41,15 @@ int main(){
 
 
     // verious output process --------------------------------
-    char str[] = "Introduction to C ";
-    // clrscr();
-    printf("\n |%s|",str);
-    printf("\n |%20s|",str);
-    printf("\n |%-20s|",str);
-    printf("\n |%.4s|",str);+-
+    // char str[] = "Introduction to C ";
+    // printf("\n |%s|",str);
+    // printf("\n |%20s|",str);
+    // printf("\n |%-20s|",str);
+    // printf("\n |%.4s|",str);+-
 
 
-    printf("\n |%20.4s|",str);
-    printf("\n |%-20.4s|",str);
+    // printf("\n |%20.4s|",str);
+    // printf("\n |%-20.4s|",str);
 
     
 
