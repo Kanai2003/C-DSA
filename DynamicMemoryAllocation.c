@@ -6,15 +6,14 @@
 */
 
 # include <stdio.h>
-# include <stdio.h>
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){
+
     int *ptr;
     
     ptr = (int *) malloc(5 * sizeof(int));  // (5 * sizeof(int)) is number or size in bytes
-
-    ptr = (int *) calloc(5,sizeof(int));  
+                                            // now we can use the ponter as array
+    ptr = (int *) calloc(5,sizeof(int));    //malloc store garbage value as default but calloc store 0 as  default value
 
     ptr = realloc(ptr, 5);
 
