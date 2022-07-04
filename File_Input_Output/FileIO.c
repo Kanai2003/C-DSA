@@ -17,21 +17,21 @@ int main(){
 
 
 
-    //Read the file's characters ----------------------------------
-    fptr = fopen("file.txt","r");
-    printf("The value if the file is : %c\n",fgetc(fptr));      //fgetc() will read the file's characters
-    printf("The value if the file is : %c\n",fgetc(fptr));
-    printf("The value if the file is : %c\n",fgetc(fptr));
-    printf("The value if the file is : %c\n",fgetc(fptr));
-    printf("The value if the file is : %c\n",fgetc(fptr));
-    char ch;
-    fscanf(fptr,"%c",&ch);      //We can also use fscanf() ro read the file  
-    printf("character = %c \n",ch);   //WE can also read integer as well as character
-    fclose(fptr);
+    // //Read the file's characters ----------------------------------
+    // fptr = fopen("file.txt","r");
+    // printf("The value if the file is : %c\n",fgetc(fptr));      //fgetc() will read the file's characters
+    // printf("The value if the file is : %c\n",fgetc(fptr));
+    // printf("The value if the file is : %c\n",fgetc(fptr));
+    // printf("The value if the file is : %c\n",fgetc(fptr));
+    // printf("The value if the file is : %c\n",fgetc(fptr));
+    // char ch;
+    // fscanf(fptr,"%c",&ch);      //We can also use fscanf() ro read the file  
+    // printf("character = %c \n",ch);   //WE can also read integer as well as character
+    // fclose(fptr);
 
 
 
-    // To read the whole file -------------------------------
+    // // To read the whole file -------------------------------
     fptr = fopen("file.txt","r");
     char c = fgetc(fptr);
     while(c != EOF){           //"EOF" is constant that means the End Of File
@@ -39,8 +39,6 @@ int main(){
         c = fgetc(fptr);
     }
     fclose(fptr);
-
-
 
 
 
