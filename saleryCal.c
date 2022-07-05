@@ -13,4 +13,7 @@ int main(){
     }
     printf("Your Gross salery is : %d",GS);
     
+
+
+    // sgdkljghsakdgjao;gh
 }
