@@ -42,6 +42,6 @@ int main (){
     struct stack *s1 , *s2;
     s1->top = -1;
     push(s1,1);
-    int res = peek(s1);
-    printf("hello %d",res);
+    printf("%d\n",pop(s1));
+    
 }
