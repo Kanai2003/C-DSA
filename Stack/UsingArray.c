@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 20
+#define N 10
 
 struct stack{
     int data[N];
@@ -41,7 +41,16 @@ int peek(struct stack *s ){
 int main (){
     struct stack *s1 , *s2;
     s1->top = -1;
-    push(s1,1);
-    printf("%d\n",pop(s1));
+    // push(s1,1);
+    // push(s1,3);
+    while(! isFull(s1)){
+
+        push(s1,s1->top);
+    }
+    // printf("%d\n",pop(s1));
+    // printf("%d\n",pop(s1));
+    while(! isEmpty(s1)){
+        printf("%d\n",pop(s1));
+    }
     
 }
