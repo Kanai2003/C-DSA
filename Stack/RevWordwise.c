@@ -30,8 +30,8 @@ void push (struct stack *s  ,char val){
     }
 }
 
-void pop(struct stack *s ){
-    printf("%c",s->data[(s->top)--]);
+ char pop(struct stack *s ){
+    return (s->data[(s->top)--]);
 }
 
 
@@ -39,6 +39,13 @@ int main(){
     struct stack *s1 , *s2;
     s1->top = -1;
     char line[] = "thank you";
+    for(int i = 0 ; line[i] != '\0' ; i++){
+        push(s1 , line[i]);
+    }
+    while(! isEmpty(s1)){
+        printf("%c",pop(s1));
+    }
+    printf("The Fucking C in stack is not working well :(");
     
     
 }

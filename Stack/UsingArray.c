@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #define N 10
 
 struct stack{
@@ -50,7 +51,7 @@ int main (){
     // printf("%d\n",pop(s1));
     // printf("%d\n",pop(s1));
     while(! isEmpty(s1)){
-        printf("%d\n",pop(s1));
+        printf("%d  ",pop(s1));
     }
     
 }
