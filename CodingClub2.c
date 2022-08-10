@@ -63,6 +63,7 @@ int main(){
         break;
     }
     printf("%lf\n",result);
+    printf("kanailal manna")
 
     return 0;
 }

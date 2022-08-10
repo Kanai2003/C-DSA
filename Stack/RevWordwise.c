@@ -40,4 +40,5 @@ int main(){
     s1->top = -1;
     char line[] = "thank you";
     
+    
 }
