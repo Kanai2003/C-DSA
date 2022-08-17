@@ -26,26 +26,40 @@ void push (struct stack *s  ,char val){
     if(! isFull(s)){
         s->data[++(s->top)] = val;
     }else {
-        printf("stack is full :(");
+        printf("stack is full :( ");
     }
 }
 
- char pop(struct stack *s ){
+char pop(struct stack *s ){
     return (s->data[(s->top)--]);
+}
+char peek(struct stack *s ){
+    return (s->data[(s->top)]);
 }
 
 
 int main(){
-    struct stack *s1 , *s2;
-    s1->top = -1;
-    char line[] = "thank you";
+    struct stack s1 , s2;
+    s1.top = -1;
+    s2.top = -1;
+    char line[100] ;
+    printf("Enter a line to reverse wordwise :\n");
+    scanf("%[^\n]s",&line);
     for(int i = 0 ; line[i] != '\0' ; i++){
-        push(s1 , line[i]);
+        push(&s1 , line[i]);
     }
-    while(! isEmpty(s1)){
-        printf("%c",pop(s1));
+    
+    while( ! isEmpty(&s1)){
+        while(peek(&s1) != ' ' && !isFull(&s2) && !isEmpty(&s1)){    
+            push(&s2,pop(&s1));
+        }
+        while(! isEmpty(&s2)){
+            printf("%c",pop(&s2));
+        }
+        if(peek(&s1) == ' '){
+            printf("%c",pop(&s1));
+        }
     }
-    printf("The Fucking C in stack is not working well :(");
     
     
 }

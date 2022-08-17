@@ -1,5 +1,5 @@
-#include<stdio.h>
-int main(){
+// #include<stdio.h>
+// int main(){
     // int N;
     // printf("Enter number of days : ");
     // scanf("%d",&N);
@@ -23,7 +23,79 @@ int main(){
     // x=(a=2,b=5,a+b);
     // printf("%d %d %d",a,b,x);
     
-    
-    
+    // return 0;
+// }
+
+
+
+
+
+#include <stdio.h>
+
+#define MAX 5
+
+int front = -1;
+int rear = -1;
+
+int arr[MAX];
+
+void insert (int ele) {
+    if (rear == MAX - 1) {
+        printf("\tOverflow !!!\n");
+    } else {
+        rear = rear + 1;
+        arr[rear] = ele;
+        if (rear == 0) {
+            front = 0;
+        }
+    }
+}
+
+void delete () {
+    int ele;
+    if (front > rear) {
+        printf("\tUnderflow !!!\n");
+    } else {
+        ele = arr[front];
+        front = front + 1;
+        printf("%d is deleted\n", ele);
+    }
+}
+
+void display () {
+    if (front == - 1 && rear == -1) {
+        printf("\tUnderflow !!!\n");
+        return;
+    }
+    for(int i = front; i <= rear; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main () {
+    int ch, ele;
+    while(1) {
+        printf("\n1.Insert \n2.Delete \n3.Display \n4.Exit\n");
+        printf("\nEnter Choice: ");
+        scanf("%d", &ch);
+        switch(ch) {
+            case 1 : 
+                printf("Enter Element: ");
+                scanf("%d", &ele);
+                insert(ele);
+                break;
+            case 2:
+                delete();
+                break;
+            case 3:
+                display();
+                break;     
+            case 4: 
+                return 0;
+            default: 
+                printf("\nInvalid Input !!! \n");
+        }
+    }
     return 0;
 }
