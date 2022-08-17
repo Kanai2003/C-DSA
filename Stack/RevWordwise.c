@@ -48,7 +48,6 @@ int main(){
     for(int i = 0 ; line[i] != '\0' ; i++){
         push(&s1 , line[i]);
     }
-    
     while( ! isEmpty(&s1)){
         while(peek(&s1) != ' ' && !isFull(&s2) && !isEmpty(&s1)){    
             push(&s2,pop(&s1));
