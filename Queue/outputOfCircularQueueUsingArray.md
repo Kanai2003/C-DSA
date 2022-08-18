@@ -229,4 +229,5 @@ Your Queue is :  14 16 18 {3 to 3 index is Empty} 10
         5.display
         6.exit :
 Enter Your Choice : 6
+
 PS D:\coding\C\Queue> 
