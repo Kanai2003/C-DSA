@@ -2,11 +2,10 @@
 #define N 5
 typedef struct queue{
     int data[N];
-    int front ;
     int rear;
 }queue;
 int isEmpty(queue *q){
-    if(q->front == -1 && q->rear == -1){
+    if(q->rear == -1){
         return 1;
     }
     return 0;
@@ -19,9 +18,6 @@ void push(queue *q, int val){
         printf("Queue is Full :(  , %d is not pushed to Queue\n",val);
         return;
     }
-    if(q->front == -1){
-        q->front = 0;
-    }
         //assending
     if(val >= q->data[q->rear]){
         q->rear++;
@@ -33,31 +29,34 @@ void push(queue *q, int val){
             i--;
         }
         q->data[i+1] = val;
+        q->rear++;
     }  
 }
-
 int pop(queue *q ){
     if(isEmpty(q)){
         printf("Empty Queue :( \n");
         return -1;
     }
-    return q->data[(q->front)++];
+    int val = q->data[0];
+    for(int i = 0 ; i < q->rear; i++){
+        q->data[i] = q->data[i+1];
+    }
+    q->rear--;
+    return val;
 }
 int peek(queue *q){
     if(isEmpty(q)){
         printf("Empty Queue :( \n");
         return -1;
     }
-    return (q->data[q->front]);
+    return q->data[0];
 }
 int size(queue *q){
     if(isEmpty(q)){
         printf("Empty Queue :( \n");
         return -1;
     }
-    
-    return (q->rear - q->front + 1);
-    
+    return q->rear+1;
 }
 void display(queue *q){
     if(isEmpty(q)){
@@ -65,19 +64,18 @@ void display(queue *q){
         return ;
     }
     printf("Your Queue is :  ");
-    for(int i = q->front ; i<=q->rear; i++){
+    for(int i = 0 ; i<=q->rear; i++){
         printf("%d ",q->data[i]);
     }
 }
 int main(){
     queue q1;
-    q1.front = -1;
     q1.rear = -1;
     int exit = 0;
     printf("Queue is Empty, Capacity is %d, now modify it :)\n",N);
     while(exit == 0){
         int func;
-        printf("\n\t1.push \n\t2.pop \n\t3.peek \n\t4.size \n\t5.display \n\t6.exit : \nEnter Your Choice : ");
+        printf("\n\t1.push \n\t2.pop \n\t3.peek \n\t4.size \n\t5.display \n\t6.exit  \nEnter Your Choice : ");
         scanf("%d",&func);
         switch(func){
             case 1:
