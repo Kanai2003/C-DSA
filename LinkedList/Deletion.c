@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Node {
+typedef struct Node {
     int data;
     struct Node *next;
-};
+}Node;
 
 // Function to print the whole list---------------
-void printList(struct Node * head){
+void printList(Node * head){
     while(head != NULL) {
         printf("%d -> ",head->data);
         head = head->next;
@@ -16,23 +16,22 @@ void printList(struct Node * head){
 }
 
 //Function to delete the first node in the list--------------------
-struct Node * deleteFirst(struct Node * head){
+Node * deleteFirst(Node * head){
     if(head == NULL){
         return NULL;
     }
     if(head->next == NULL){
         free(head);
         return NULL;
-
     }
-    struct Node * next = head->next;
+    Node * next = head->next;
     free(head);
     return next;
 }
 
 
 // Function to delete the last node in the list--------------------
-void deleteLast(struct Node * head){
+void deleteLast(Node * head){
     if(head == NULL){
         return ;
     }
@@ -45,33 +44,32 @@ void deleteLast(struct Node * head){
     }
     head->next = NULL;
     free(head->next);
-
 }
 
 
 //Function to delete the node from the list--------------------
-void deleteNode(struct Node * head , int index){
+void deleteNode(Node * head , int index){
     int count = 0;
     while(count != index -1){
         head = head->next;
         count++;
     }
-    struct Node * nextNode = head->next;
+    Node * nextNode = head->next;
     head->next = head->next->next;
     free(nextNode);
 }
 
 int main (){
 
-    struct Node *head;
-    struct Node *second;
-    struct Node *third;
-    struct Node *fourth;
+    Node *head;
+    Node *second;
+    Node *third;
+    Node *fourth;
     
-    head = (struct Node *)malloc(sizeof(struct Node));
-    second = (struct Node *)malloc(sizeof(struct Node));
-    third = (struct Node *)malloc(sizeof(struct Node));
-    fourth = (struct Node *)malloc(sizeof(struct Node));
+    head = (Node *)malloc(sizeof( Node));
+    second = ( Node *)malloc(sizeof( Node));
+    third = ( Node *)malloc(sizeof(Node));
+    fourth = ( Node *)malloc(sizeof( Node));
 
     head->data = 19;
     head->next = second;
