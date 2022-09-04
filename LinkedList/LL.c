@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 typedef struct Node{
     int data;
     struct Node * next;
@@ -92,8 +93,8 @@ void deleteLast(Node *head){
         printf("The list has no element :) \n");
         return;
     }
-    if(head->next=NULL){
-        free(head);
+    if(head->next == NULL){
+        printf("You have only Element :) , you can't delete right now :)\n");
         return;
     }
     while(head->next->next != NULL){
@@ -102,28 +103,106 @@ void deleteLast(Node *head){
     head->next=NULL;
     free(head->next);
 }
+
+//delete a Node by its value
+void deleteValue(Node **head,int val){
+    Node *temp = *head;
+    if(temp == NULL){
+        printf("List is empty :)");
+        return;
+    }
+    //if first node contain the data
+    if(temp->data==val){
+        *head = temp->next;
+        free(temp);
+        return ;
+    }
+    while(temp->next->data != val){
+        temp=temp->next;
+    }
+    Node * extra = temp->next;
+    temp->next = temp->next->next;
+    extra = NULL;
+    free(extra);
+}
+
+//concat 2nd list into 1st list, pass two head veriable and 
+void concat(Node *head1,Node *head2){
+    if(head1 == NULL && head2==NULL){
+        printf("Both lists are empty list :) \n");
+        return ;
+    }
+    while(head1->next != NULL){
+        head1 = head1->next;
+    }
+    head1->next = head2;
+}
+
+//reverse a linked list, pass address of head node 
+void reverse(Node **head){
+    Node *prev=NULL;
+    Node *curr = *head;
+    Node *newNode;
+    while(curr != NULL){
+        newNode = curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=newNode;
+    }
+    *head=prev;
+//this function will arrange all the nodes wirh assending order, pass address of the head and value
+void addToAssendingList(Node **head,int val ){
+    if(*head == NULL){ //if list contain nothing
+        *head = init(val);
+        return;
+    }
+    Node *newNode = init(val);
+    Node *temp=*head;
+    if(temp->data > val){//add to first
+        newNode->next=temp;
+        *head=newNode;
+        return;
+    }
+    //add last and middle
+    while(temp->next != NULL && temp->next->data < val){
+        temp=temp->next;
+    }
+    if(temp->next == NULL){
+        temp->next=newNode;
+        return ;
+    }
+    newNode->next=temp->next;
+    temp->next=newNode;
+}
+
 int main(){
     
-    Node *head = init(39);
-    display(head);
-    addatpos(&head,1,114);
-    display(head);
-    deleteFirst(&head);
-    // deleteLast(head);
-    display(head);
-    addatpos(&head,2,130);
-    // deleteLast(head);
-    display(head);
-    addFirst(&head,12);
-    display(head);
-    addLast(head,114);
-    display(head);
-    addatpos(&head,3,128);
-    display(head);
-    printf("Size : %d\n",size(head));
-    deleteFirst(&head);
-    display(head);
-    // deleteLast(head);
-    display(head);
+    Node *head1 = init(39);
+    addFirst(&head1,12);
+    addLast(head1,143);
+    addLast(head1,114);
+    addatpos(&head1,4,130);
+    display(head1);
     
+    Node *head2 = init(9);
+    addLast(head2,8838);
+    addLast(head2,38);
+    addLast(head2,17775);
+    display(head2);
+
+    concat(head1,head2);
+    display(head1);
+
+    reverse(&head1);
+    display(head1);
+    reverse(&head1);
+    display(head1);
+
+    Node *head3=init(9);
+    addToAssendingList(&head3,3);
+    addToAssendingList(&head3,4);
+    addToAssendingList(&head3,1);
+    addToAssendingList(&head3,5);
+    display(head3);
+       
 }
