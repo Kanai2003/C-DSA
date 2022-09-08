@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void divide(int arr[],int start , int end);
+void divide(int **arr[],int start , int end);
 
-void conqure(int arr[],int start ,int mid, int end);
+void conqure(int **arr[],int start ,int mid, int end);
 
 int main(){
     //taking array as input 
@@ -15,7 +15,7 @@ int main(){
         scanf("%d",&arr[i]);
     }
     //sorting
-    divide(arr,0,size-1);
+    divide(&arr,0,size-1);
     
     //printing the sorted array
     for(int i =0 ; i<size;i++){
@@ -25,7 +25,7 @@ int main(){
     return 0;
 }
 
-void divide(int arr[], int start , int end ){
+void divide(int **arr[], int start , int end ){
     if(start >= end){
         return;
     }
@@ -36,7 +36,7 @@ void divide(int arr[], int start , int end ){
     conqure(arr,start,mid,end);
 }
 
-void conqure(int arr[], int start, int mid, int end){
+void conqure(int **arr[], int start, int mid, int end){
     int mar[end - start + 1];
     int idx1 = start;
     int idx2 = mid+1;
