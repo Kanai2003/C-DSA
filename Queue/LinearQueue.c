@@ -42,7 +42,7 @@ int main (){
     q.rear=-1;
     int exit=0;
     while(exit == 0){
-        printf("\n1.Insert\t2.Delete\t3.Display\4.Exit\nEnter your choice : ");
+        printf("\n1.Insert\t2.Delete\t3.Display\t4.Exit\nEnter your choice : ");
         int choice;
         scanf("%d",&choice);
         switch(choice){
