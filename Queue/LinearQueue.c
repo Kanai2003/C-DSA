@@ -19,9 +19,14 @@ void insert(queue *q,int val){
     q->data[q->rear] = val;
 }
 int delete(queue *q){
-    if(q->front == -1 || q->front>q->rear){
+    if(q->front == -1 && q->rear == -1){
         printf("Queue is empty :) ");
         return -1;
+    }else if (q->front == q->rear){
+        int data = q->data[q->rear];
+        q->front=-1;
+        q->rear=-1;
+        return data;
     }
     return q->data[(q->front)++];
 }
@@ -48,12 +53,16 @@ int main (){
         switch(choice){
             case 1:
                 printf("Enter a integer value to insert : ");
-                int val ;
-                scanf("%d",&val);
-                insert(&q,val);
+                int data ;
+                scanf("%d",&data);
+                insert(&q,data);
                 break;
             case 2:
-                printf("Deleted element is : %d",delete(&q));   
+                printf("");   //this printf func. used to not to get error from compiler
+                int val = delete(&q);
+                if (val != -1){
+                    printf("Deleted element is : %d",val);
+                }
                 break;
             case 3:
                 display(&q);
