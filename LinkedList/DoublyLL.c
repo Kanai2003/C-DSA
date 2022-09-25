@@ -94,20 +94,20 @@ void deleteLast(Node **head){
     free(p);
 }
 //delete a value on a linked list 
-void deleteValue(Node ** head,int val){     //incomplete function , if there is not the value then function is not working, fixed it 
+void deleteValue(Node ** head,int val){      
     Node *p = *head;
     if(p->data == val){
         deleteFirst(head);
         return ;
     }
-    while(p->data != val && p != NULL){
+    while(p->data != val && p->next != NULL){
         p = p->next;
     }
-    if(p == NULL){
+    if(p->data != val){
         printf("%d is not in the list :) \n",val);
-        return;
+    
     }else {
-        if(p->next==NULL){   //if last node containing value
+        if(p->next==NULL ){   //if last node containing value
             deleteLast(head);
         }else if(p!=NULL) {
             p->prev->next = p->next;
@@ -152,9 +152,9 @@ int main(){
     addPosition(&head,3,142);
     display(head);
     displayRev(head);
-    // deleteLast(&head);
+    deleteLast(&head);
     display(head);
-    deleteValue(&head,42);
+    deleteValue(&head,320);
     display(head);
     displayRev(head);
     
