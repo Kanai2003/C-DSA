@@ -3,15 +3,15 @@
 #include <string.h>     //for C language there is not any string , we use character array for string concept
 int main(){
     
-    // char str[] = {'M','y',' ','N','a','m','e',' ','i','s',' ','K','a','n','a','i','\0'}; //'\0' is remark for end of this string
-    // printf("%s\n",str);
+    char str[] = {'M','y',' ','N','a','m','e',' ','i','s',' ','K','a','n','a','i','\0'}; //'\0' is remark for end of this string
+    printf("%s\n",str);
 
-    // char str1[] = "My Name is Kanai";  // "\0" is not necessary for it
-    // printf("%s\n", str1);              // we can change pointer arrray but we cant change any notmal character array
+    char str1[] = "My Name is Kanai";  // "\0" is not necessary for it
+    printf("%s\n", str1);              // we can change pointer arrray but we cant change any notmal character array
 
-    // char *str2 ; // this is called as pointer array
-    // gets("%s",str2);   //similar to scanf() function and faster 
-    // puts(str2);       // we can use puts() as well as printf() function
+    char *str2 ; // this is called as pointer array
+    gets("%s",str2);   //similar to scanf() function and faster 
+    puts(str2);       // we can use puts() as well as printf() function
 
 
 
@@ -24,7 +24,7 @@ int main(){
 
     strcat(s1,s2);           //Is used to concatenate or join two strings
 
-    //strcpy(s1,s2);          //Can copy the content of a string to another
+    strcpy(s1,s2);          //Can copy the content of a string to another
 
     int i=strcmp(s1, "Kanailal");      //Can compare two strings
     int j=strcmp(s1, s2);
@@ -41,15 +41,15 @@ int main(){
 
 
     // verious output process --------------------------------
-    // char str[] = "Introduction to C ";
-    // printf("\n |%s|",str);
-    // printf("\n |%20s|",str);
-    // printf("\n |%-20s|",str);
-    // printf("\n |%.4s|",str);+-
+    char str[] = "Introduction to C ";
+    printf("\n |%s|",str);
+    printf("\n |%20s|",str);
+    printf("\n |%-20s|",str);
+    printf("\n |%.4s|",str);+-
 
 
-    // printf("\n |%20.4s|",str);
-    // printf("\n |%-20.4s|",str);
+    printf("\n |%20.4s|",str);
+    printf("\n |%-20.4s|",str);
 
     
 
