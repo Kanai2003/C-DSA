@@ -10,7 +10,7 @@ int main(){
     printf("%s\n", str1);              // we can change pointer arrray but we cant change any notmal character array
 
     char *str2 ; // this is called as pointer array
-    gets("%s",str2);   //similar to scanf() function and faster 
+    // gets("%s",str2);   //similar to scanf() function and faster 
     puts(str2);       // we can use puts() as well as printf() function
 
 
@@ -41,7 +41,7 @@ int main(){
 
 
     // verious output process --------------------------------
-    char str[] = "Introduction to C ";
+   
     printf("\n |%s|",str);
     printf("\n |%20s|",str);
     printf("\n |%-20s|",str);
