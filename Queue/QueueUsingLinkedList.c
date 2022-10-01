@@ -42,31 +42,5 @@ void display(Node *head){
     }
 }
 int main (){
-    Node *queue = NULL;
-    int exit=0;
-    while(exit == 0){
-        printf("\n1.Insert\t2.Delete\t3.Display\t4.Exit\nEnter your choice : ");
-        int choice;
-        scanf("%d",&choice);
-        switch(choice){
-            case 1:
-                printf("Enter a integer value to insert : ");
-                int val ;
-                scanf("%d",&val);
-                insert(&queue,val);
-                break;
-            case 2:
-                printf("Deleted element is : %d",delete(&queue));   
-                break;
-            case 3:
-                display(queue);
-                break;
-            case 4:
-                exit++;
-                break;
-            default:
-                printf("Enter valid input :) \n");
-
-        }
-    }
+    
 }
