@@ -150,6 +150,7 @@ void reverse(Node **head){
         curr=newNode;
     }
     *head=prev;
+}
 //this function will arrange all the nodes wirh assending order, pass address of the head and value
 void addToAssendingList(Node **head,int val ){
     if(*head == NULL){ //if list contain nothing
@@ -176,6 +177,35 @@ void addToAssendingList(Node **head,int val ){
 }
 
 //Bouble sort of any linked list 
+void bubbleSort(struct Node *head) 
+{ 
+    int total; 
+    struct Node *temp1; 
+    struct Node *dangle= NULL; 
+  
+    if (head == NULL) 
+        return; 
+  
+    do
+    { 
+        total = 0; 
+        temp1 = head; 
+  
+        while (temp1->next != dangle) 
+        { 
+            if (temp1->data > temp1->next->data) 
+            { 
+                int temp = temp1->data; 
+                temp1->data = temp1->next->data; 
+                temp1->next->data = temp;  
+                total = 1;
+            } 
+            temp1 = temp1->next; 
+        } 
+        dangle = temp1; 
+    } 
+    while (total); 
+} 
 
 int main(){
     
@@ -194,6 +224,7 @@ int main(){
 
     concat(head1,head2);
     display(head1);
+    
 
     reverse(&head1);
     display(head1);
@@ -207,4 +238,10 @@ int main(){
     addToAssendingList(&head3,5);
     display(head3);
        
+    bubbleSort(head1);
+    display(head1);
+    
+    bubbleSort(head3);
+    display(head3);
+    return 0;
 }
