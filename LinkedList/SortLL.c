@@ -177,11 +177,11 @@ void addToAssendingList(Node **head,int val ){
 }
 
 //Bouble sort of any linked list 
-void bubbleSort(struct Node *head) 
+void bubbleSort(Node *head) 
 { 
     int total; 
-    struct Node *temp1; 
-    struct Node *dangle= NULL; 
+    Node *temp1; 
+    Node *dangle= NULL; 
   
     if (head == NULL) 
         return; 
