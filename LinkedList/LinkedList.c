@@ -45,7 +45,6 @@ void addFirst(Node **head,int val){
 //add a node at the end of the list, pass only head variable
 void addLast(Node *head ,int val){
     Node *newNode = init(val);
-    newNode->data = val;
     while(head->next != NULL){
         head = head->next;
     }
@@ -57,9 +56,7 @@ void addatpos(Node** head,int pos,int val){
     if(*head == NULL){ //when list is null
         *head = init(val);
     }else if(pos == 1){ // add at begining
-        Node *newNode = init(val);
-        newNode->next = *head;
-        *head = newNode;
+        addFirst(head,val);
         return;
     }else{ //add any point
         Node *temp = *head;
@@ -150,6 +147,8 @@ void reverse(Node **head){
         curr=newNode;
     }
     *head=prev;
+}
+
 //this function will arrange all the nodes wirh assending order, pass address of the head and value
 void addToAssendingList(Node **head,int val ){
     if(*head == NULL){ //if list contain nothing
