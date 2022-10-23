@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -33,18 +32,17 @@ void postorderTraversal(node* root) {
 }
 
 // Create a new Node
-node* createNode( int value) {
-    node* newNode = malloc(sizeof(node));
+node *createNode( int value) {
+    node *newNode = malloc(sizeof(node));
     newNode->data = value;
     newNode->left = NULL;
     newNode->right = NULL;
-
     return newNode;
 }
 
 
 // Insert on the right of the node
-node* insertRight(node* root, int value) {
+node *insertRight(node* root, int value) {
     root->right = createNode(value);
     return root->right;
 }
@@ -98,4 +96,6 @@ int main() {
     postorderTraversal(root);
 
     printf("\nis BST : %d",isBST(root));
+    printf("\nis BST : %d",BSTAnother(root));
+
 }
