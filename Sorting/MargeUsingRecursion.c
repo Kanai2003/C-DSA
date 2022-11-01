@@ -1,64 +1,65 @@
 #include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
 
-void divide(int **arr[],int start , int end);
+void conqure(int arr[], int start, int end){
+    int mid = start + (end - start + 1)/2;
+    while(start < mid && mid <= end ){
+        if (arr[start] > arr[mid]){
+            for (int i = mid -1; i>= start ; i--){
+                int temp = arr[i+1];
+                arr[i+1] = arr[i];
+                arr[i] = temp;
+            }
+            start++;
+            mid++;
+        }else{
+            start++;
+        }
+    }
+}
 
-void conqure(int **arr[],int start ,int mid, int end);
 
+void divide(int arr[], int start , int end ){
+    if(start >= end){
+        return;
+    }   
+    int mid  = start + (end - start +1)/2;
+    divide(arr,start,mid-1);
+    divide(arr,mid,end);
+    conqure(arr,start,end);
+}
+
+
+void display(int arr[], int size){
+    for (int i = 0; i< size; i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+}
 int main(){
+    clock_t begin = clock();
     //taking array as input 
     int size ;
     printf("Enter size of array : ");
     scanf("%d",&size);
     int arr[size];
-    for(int i =0 ; i<size;i++){
-        printf("Enter Array[%d] : ",i);
-        scanf("%d",&arr[i]);
+    for (int i = 0 ; i< size; i++){
+        arr[i] = rand() % 100 ; 
     }
+    printf("Given Array : \n");
+    display(arr,size);
+
     //sorting
-    divide(&arr,0,size-1);
+    divide(arr,0,size-1);
     
     //printing the sorted array
-    for(int i =0 ; i<size;i++){
-        printf(" %d ",arr[i]);
-    }
+    printf("Sorted Array : \n");
+    display(arr,size);
     
+    clock_t end = clock();
+    double timespent = (double)(end - begin)/CLOCKS_PER_SEC;
+    printf("\n Execution Time : %lf sec\n",timespent);
     return 0;
 }
 
-void divide(int **arr[], int start , int end ){
-    if(start >= end){
-        return;
-    }
-        
-    int mid  = start + (end - start)/2;
-    divide(arr,start,mid);
-    divide(arr,mid+1,end);
-    conqure(arr,start,mid,end);
-}
-
-void conqure(int **arr[], int start, int mid, int end){
-    int mar[end - start + 1];
-    int idx1 = start;
-    int idx2 = mid+1;
-    int x = 0;
-    while(idx1 < mid && idx2 < end){      
-        if(arr[idx1] <= arr[idx2]){
-            mar[x++] = arr[idx1++];
-        }else{
-            mar[x++] = arr[idx2++];
-        }
-    }
-
-    while (idx1 < mid){
-        mar[x++] = arr[idx1++];
-    }
-
-    while (idx2 < end){
-        mar[x++] = arr[idx2++];
-    }
-
-    for(int i=0,j=start ; i <= end ; i++,j++){
-        arr[j]= mar[i];
-    }
-
-}
