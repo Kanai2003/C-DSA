@@ -9,7 +9,9 @@ typedef struct node {
 
 // Inorder traversal
 void inorderTraversal( node* root) {
-    if (root == NULL) return;
+    if (root == NULL){
+        return;
+    }
     inorderTraversal(root->left);
     printf("%d ->", root->data);
     inorderTraversal(root->right);
@@ -17,7 +19,9 @@ void inorderTraversal( node* root) {
 
 // Preorder traversal
 void preorderTraversal( node* root) {
-    if (root == NULL) return;
+    if (root == NULL){
+        return;
+    }
     printf("%d ->", root->data);
     preorderTraversal(root->left);
     preorderTraversal(root->right);
@@ -25,7 +29,9 @@ void preorderTraversal( node* root) {
 
 // Postorder traversal
 void postorderTraversal(node* root) {
-    if (root == NULL) return;
+    if (root == NULL){
+        return;
+    }
     postorderTraversal(root->left);
     postorderTraversal(root->right);
     printf("%d ->", root->data);
@@ -96,6 +102,5 @@ int main() {
     postorderTraversal(root);
 
     printf("\nis BST : %d",isBST(root));
-    printf("\nis BST : %d",BSTAnother(root));
 
 }
