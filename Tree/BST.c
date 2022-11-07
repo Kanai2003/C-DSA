@@ -103,16 +103,7 @@ void delete(node **root, int val){
         x->data = xsucc->data;
         x = xsucc;
     }
-    // no child is present
-    if(x->left==NULL && x->right==NULL){
-        if(parent->left == x){
-            parent->left == NULL;
-        }else{
-            parent->right = NULL;
-        }
-        free(x);
-        return ;
-    }
+    
     //only right chile is present 
     if(x->left==NULL && x->right!=NULL){
         if(parent->left == x){
@@ -132,6 +123,16 @@ void delete(node **root, int val){
         }
         free(x);
         return;
+    }
+    // no child is present
+    if(x->left==NULL && x->right==NULL){
+        if(parent->left == x){
+            parent->left = NULL;
+        }else{
+            parent->right = NULL;
+        }
+        free(x);
+        return ;
     }
 }
 int main(){
