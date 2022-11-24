@@ -6,11 +6,12 @@ typedef struct queue{
     int rear;
 }queue;
 void insert(queue *q,int val){
+    // if queue is full
     if(q->rear == size-1){
         printf("Queue is full :) ");
         return ;
     }
-    if(q->rear == -1 && q->front == -1){
+    if(q->rear == -1 && q->front == -1){  //if queue is empty
         q->front++;
         q->rear++;
     }else {
@@ -23,13 +24,13 @@ int delete(queue *q){
         printf("Queue is empty :) ");
         return -1;
     }else if (q->front == q->rear){
-        int data = q->data[q->rear];
-        q->front=-1;
+        int data = q->data[q->front];
+        q->front=-1;          
         q->rear=-1;
         return data;
     }
-    return q->data[(q->front)++];
-}
+    return q->data[(q->front)++];             
+}                            
 void display(queue *q){
     if(q->front == -1 || q->front>q->rear){
         printf("Queue is empty :) ");
