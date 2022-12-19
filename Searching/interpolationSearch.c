@@ -1,3 +1,4 @@
+//Interpolation search is more efficient than Binary search
 #include<stdio.h>
 int interpolationSearch(int arr[],int high,int key){
     int low = 0;
