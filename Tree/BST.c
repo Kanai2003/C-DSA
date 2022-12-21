@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 typedef struct node {
     int data;
@@ -135,6 +136,22 @@ void delete(node **root, int val){
         return ;
     }
 }
+
+/*check a binary tree is Full Binary tree(either 2 or 0 child) or not*/
+bool isFullBT(node * root){
+    //checking tree emptiness
+    if(root == NULL){
+        return true;
+    }
+    if(root->left == NULL && root->right == NULL){
+        return true;
+    }
+    if(root->left && root->right){
+        return (isFullBT(root->left) && isFullBT(root->right));
+    }
+    return false;
+}
+
 int main(){
     node *root = NULL;
     insert(&root,6);
@@ -152,5 +169,10 @@ int main(){
     printf("\nInorder : \n");
     inorder(root);
 
+    if(isFullBT(root)){
+        printf("\nthe tree is Full Binary Tree :) ");
+    }else{
+        printf("\n the tree is not a full binary tree :( ");
+    }
     return 0;
 }
