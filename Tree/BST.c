@@ -136,20 +136,12 @@ void delete(node **root, int val){
         return ;
     }
 }
-
-/*check a binary tree is Full Binary tree(either 2 or 0 child) or not*/
-bool isFullBT(node * root){
-    //checking tree emptiness
+//count total number of nodes in a tree------------------
+int numberOfNodes(node *root){
     if(root == NULL){
-        return true;
+        return 0;
     }
-    if(root->left == NULL && root->right == NULL){
-        return true;
-    }
-    if(root->left && root->right){
-        return (isFullBT(root->left) && isFullBT(root->right));
-    }
-    return false;
+    return (1 + numberOfNodes(root->left) + numberOfNodes(root->right));
 }
 
 int main(){
