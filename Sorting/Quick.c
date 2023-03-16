@@ -1,35 +1,47 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-//function for swaping two int
-// void swap(int *a, int *b) {
-//     int t = *a;
-//     *a = *b;
-//     *b = t;
+void swap(int *a , int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// int partition(int array[], int low, int high) {
+//     int pivot = array[low];
+//     int i = low+1;
+//     int j = high;
+//     while(j>=i){
+//         while(array[i]<pivot){
+//             i++;
+//         }
+//         while(array[j]>pivot){
+//             j--;
+//         }
+//         if(j>i){
+//             int temp = array[i];
+//             array[i] = array[j];
+//             array[j] = temp;
+//         }
+//     }
+//     int temp = array[low];
+//     array[low] = array[j];
+//     array[j] = temp;
+
+//     return j;
 // }
 
 
-int partition(int array[], int low, int high) {
-    int pivot = array[low];
-    int i = low+1;
-    int j = high;
-    while(j>=i){
-        while(array[i]<pivot){
+int partition(int arr[], int start , int end){
+    int i = start-1, pivot = arr[end];
+    for (int j = start; j<end; j++){
+        if(arr[j] <=  pivot){
             i++;
-        }
-        while(array[j]>pivot){
-            j--;
-        }
-        if(j>i){
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
+            swap(&arr[i],&arr[j]);
         }
     }
-    int temp = array[low];
-    array[low] = array[j];
-    array[j] = temp;
-
-    return j;
+    swap(&arr[i+1],&arr[end]);
+    return (i+1);
 }
 
 void quickSort(int array[], int low, int high) {
@@ -58,8 +70,7 @@ int main() {
     int data[n];
     for (int  i = 0; i < n; i++)
     {
-        printf("Enter arr[%d] : ", i);
-        scanf("%d",&data[i]);
+        data[i] = rand()%100;
     }
     
     
