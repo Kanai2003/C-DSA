@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 void display(int arr[], int size){
     for(int i = 0; i<size;i++){
         printf("%d ",arr[i]);
@@ -45,23 +46,18 @@ void insertionSort(int arr[], int size){
         arr[j+1] = temp;
     }
 }
-//quick sort-------------------------------------------------
-int split(int arr[] ,int low ,int high){
-    int i = low + 1;
-    int j = high;
-    while(i<=j){
-        while(arr[i] < arr[low]){
-            i++;
-        }
-        while(arr[j] > arr[low]){
-            j--;
-        }
-        if(i<j){
-            swap(&arr[i],&arr[j]);
+
+
+// quick sort-------------------------------------------------
+int split(int arr[], int low, int high){
+    int pivot = arr[high], i = low-1;
+    for(int j= low ; j<=high-1; j++){
+        if(arr[j] <= pivot){
+            swap(&arr[++i],&arr[j]);
         }
     }
-    swap(&arr[low],&arr[j]);
-    return j;
+    swap(&arr[++i],&arr[high]);
+    return i;
 }
 //please pass higher and lower index
 void quickSort(int arr[],int low , int high){
@@ -137,15 +133,15 @@ int main(){
     scanf("%d",&size);
     int arr[size];
     for(int i = 0; i<size ; i++){
-        scanf("%d",&arr[i]);
+        arr[i] = rand()%100;
     }
     display(arr,size);
     // BubbleSort(arr,size);
     // selectionSort(arr,size);
     // insertionSort(arr,size);
-    // quickSort(arr,0,size-1);
+    quickSort(arr,0,size-1);
     // mergeSort(arr,0,size-1);
-    heapSort(arr,size);
+    // heapSort(arr,size);
     display(arr,size);
    
 }
